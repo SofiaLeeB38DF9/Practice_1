@@ -1,0 +1,88 @@
+class BinaryTreeNode:
+    def __init__(self, data):
+        self.left = None
+        self.right = None
+        self.data = data
+
+class BinaryTreeNode:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, data):
+        if self.root is None:
+            self.root = BinaryTreeNode(data)
+        else:
+            self._insert_rec(self.root, data)
+
+    def _insert_rec(self, node, data):
+        if data < node.val:
+            if node.left is None:
+                node.left = TreeNode(data)
+            else:
+                self._insert_rec(node.left, data)
+        else:
+            if node.right is None:
+                node.right = TreeNode(data)
+            else:
+                self._insert_rec(node.right, data)
+
+    def inorder_traversal(self):
+        return self._inorder_rec(self.root)
+
+    def _inorder_rec(self, node):
+        return (self._inorder_rec(node.left) if node.left else []) + [node.data] + (self._inorder_rec(node.right) if node.right else [])
+
+    def preorder_traversal(self):
+        return self._preorder_rec(self.root)
+
+         class BinaryTree:
+    def deleteNode(self, root, data)
+       if root is None:
+          return root
+
+       if date < roote.data:
+          root.left = self.insert(root.left, data)
+       elif data > roote.data:
+          root.right = self.insert(root.right, data)
+       else:
+          if root.left is None and root.right is None:
+             return None
+          elif root.left is None:
+             return root.right
+          elif root.right is None:
+             return root.left
+          else:
+             root.data = self.getMin(root.right).data
+             root.right = self.deleteNode(root.right, root.data)     
+       
+       return root
+       
+    def getMin(self, root):
+       if root is None:
+          return root
+
+       while root.left is not None:
+          root = riit.left
+
+    def _preorder_rec(self, node):
+        return [node.val] + (self._preorder_rec(node.left) if node.left else []) + (self._preorder_rec(node.right) if node.right else [])
+
+    def postorder_traversal(self):
+        return self._postorder_rec(self.root)
+
+    def _postorder_rec(self, node):
+        return (self._postorder_rec(node.left) if node.left else []) + (self._postorder_rec(node.right) if node.right else []) + [node.data]
+
+if __name__ == "__main__":
+    btree = BinaryTree()
+    btree.insert(5)
+    btree.insert(3)
+    btree.insert(7)
+    btree.insert(2)
+    btree.insert(4)
+    btree.insert(6)
+    btree.insert(8)
+
+    print("Inorder Traversal:", btree.inorder_traversal())
+    print("Preorder Traversal:", btree.preorder_traversal())
+    print("Postorder Traversal:", btree.postorder_traversal())
